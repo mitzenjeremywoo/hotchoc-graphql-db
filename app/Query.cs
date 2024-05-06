@@ -36,8 +36,8 @@ namespace app
 
 [Node(
     IdField = nameof(cuisine),
-    NodeResolverType = typeof(PersonNodeResolver),
-    NodeResolver = nameof(PersonNodeResolver.ResolveAsync))]
+    NodeResolverType = typeof(RestaurantNodeResolver),
+    NodeResolver = nameof(RestaurantNodeResolver.ResolveAsync))]
     public class Restaurant
     {
         [BsonId]
@@ -46,7 +46,7 @@ namespace app
         public string cuisine { get; set; }
     }
 
-    public class PersonNodeResolver
+    public class RestaurantNodeResolver
     {
         public Task<Restaurant> ResolveAsync(
             [Service] IMongoCollection<Restaurant> collection,

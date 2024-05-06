@@ -4,7 +4,17 @@ using mongodbapp.Model;
 namespace app
 {
     public class Mutations
-    {        
+    {
+        //mutation { 
+        // addRestaurant(input: {
+        //    borough: "test", 
+        // cuisine: "Bakery2" }) {
+        //      restaurant {
+        //         id
+        //    }
+        //  }
+        //}
+
         public async Task<CreateRestaurantPayload> AddRestaurant([Service] IMongoCollection<Restaurant> collection, RestaurantInput input)
         {
             var restaurant = new Restaurant()
