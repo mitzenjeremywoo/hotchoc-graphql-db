@@ -46,17 +46,25 @@ namespace app
             };
 
             var update = Builders<Restaurant>.Update
-                .Set("cuisine", "American")
+                .Set("cuisine", restaurant.cuisine)
                 .Set("borough", input.borough);
          
             await collection.UpdateOneAsync(x => x._id == restaurant._id, update);
             return new CreateRestaurantPayload(restaurant);
         }
 
-        //public DeleteResult DeleteRestaurant(
-        //    [Service] IMongoCollection<Restaurant> collection, ObjectId id)
-        //{
-        //    return collection.DeleteOne(x => x._id == id);
-        //}
+     //mutation { 
+     //   deleteRestaurant(id: "6636a133f2b3a33b5885b387")
+     //   {
+     //        deletedCount
+     //   }
+     //}
+    public async Task<DeleteResult> DeleteRestaurant(
+            [Service] IMongoCollection<Restaurant> collection, string id)
+        {
+            var objectId = new ObjectId(id);
+            var result = await collection.DeleteOneAsync(x => x._id == objectId);
+            return result;
+        }
     }
 }
