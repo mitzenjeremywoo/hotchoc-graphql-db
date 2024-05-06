@@ -6,13 +6,23 @@ namespace app
 {
     public class Query
     {
-        [UsePaging]
+ //       query { 
+ //         restaurantByCuisine(cuisine: "Bakery")
+ //         {
+ //           nodes
+ //           {
+ //             borough
+ //           }
+ //         }
+ //       }
+
+    [UsePaging]
         [UseProjection]
         [UseSorting]
         [UseFiltering]
-        public IExecutable<Restaurant> GetPersons([Service] IMongoCollection<Restaurant> collection)
+        public IExecutable<Restaurant> GetRestaurantByCuisine([Service] IMongoCollection<Restaurant> collection, string cuisine)
         {
-            return collection.AsExecutable();
+            return collection.Find(x => x.cuisine == cuisine).AsExecutable();
         }
 
         [UseFirstOrDefault]
