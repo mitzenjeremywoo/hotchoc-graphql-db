@@ -6,15 +6,15 @@ namespace app
 {
     public class Query
     {
- //       query { 
- //         restaurantByCuisine(cuisine: "Bakery")
- //         {
- //           nodes
- //           {
- //             borough
- //           }
- //         }
- //       }
+         //       query { 
+         //         restaurantByCuisine(cuisine: "Bakery")
+         //         {
+         //           nodes
+         //           {
+         //             borough
+         //           }
+         //         }
+         //       }
 
         [UsePaging]
         [UseProjection]
@@ -41,7 +41,8 @@ namespace app
     public class Restaurant
     {
         [BsonId]
-        public MongoDB.Bson.ObjectId _id { get; set; }   
+        public MongoDB.Bson.ObjectId _id { get; set; }
+    
         public string borough { get; set; }
         public string cuisine { get; set; }
     }
