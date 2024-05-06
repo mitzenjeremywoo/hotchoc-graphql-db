@@ -31,7 +31,7 @@ builder.Services
     })
     .AddGraphQLServer()
     .AddQueryType<Query>()
-    //.AddMutationType<Mutation>()
+    .AddMutationType<Mutations>()
     .AddGlobalObjectIdentification()
     // Registers the filter convention of MongoDB
     .AddMongoDbFiltering()
