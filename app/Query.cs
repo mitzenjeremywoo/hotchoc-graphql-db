@@ -25,10 +25,10 @@ namespace app
             return collection.Find(x => x.cuisine == cuisine).AsExecutable();
         }
 
-        [UseFirstOrDefault]
         public IExecutable<Restaurant> GetAllRestaurant(
             [Service] IMongoCollection<Restaurant> collection)
         {
+
             return collection.AsExecutable();
         }
     }   
